@@ -1,61 +1,114 @@
-import React from "react";
-import { IoMdSettings, IoMdNotificationsOutline } from "react-icons/io";
+import React, { useState } from "react";
 
 export const ProjectUpload = () => {
+  const [isYouTubePopupOpen, setYouTubePopupOpen] = useState(false);
+  const [isRSSFeedPopupOpen, setRSSFeedPopupOpen] = useState(false);
+
+  const handleYouTubeUploadClick = () => setYouTubePopupOpen(true);
+  const handleRSSFeedUploadClick = () => setRSSFeedPopupOpen(true);
+
+  const handleClosePopup = () => {
+    setYouTubePopupOpen(false);
+    setRSSFeedPopupOpen(false);
+  };
+
   return (
-    <div className="min-h-screen flex flex-col bg-gray-100">
-      <header className="bg-white py-4 shadow-md flex justify-between items-center px-6">
-        <h1 className="text-2xl font-bold text-purple-600">LAMA.</h1>
-        <div className="flex items-center space-x-4">
-          <button className="bg-gray-200 p-2 rounded-full">
-            <IoMdSettings className="h-6 w-6" />
-          </button>
-          <button className="bg-gray-200 p-2 rounded-full">
-            <IoMdNotificationsOutline className="h-6 w-6" />
-          </button>
+    <div className="flex">
+      {/* Vertical Navbar */}
+      <nav className="w-1/4 bg-gray-200 p-6">
+        <ul>
+          <li className="py-2">
+            <a href="#projects" className="text-purple-600 font-semibold">
+              Projects
+            </a>
+          </li>
+          <li className="py-2">
+            <a href="#widget-configuration" className="text-purple-600">
+              Widget Configuration
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      {/* Upload Section */}
+      <div className="w-3/4 p-6">
+        <h1 className="text-2xl font-semibold mb-4">Upload</h1>
+
+        {/* Cards Section */}
+        <div className="grid grid-cols-2 gap-4 mb-6">
+          <div
+            className="p-4 border rounded-lg cursor-pointer hover:bg-gray-100"
+            onClick={handleYouTubeUploadClick}
+          >
+            <p>Upload from YouTube</p>
+          </div>
+          <div
+            className="p-4 border rounded-lg cursor-pointer hover:bg-gray-100"
+            onClick={handleRSSFeedUploadClick}
+          >
+            <p>Upload from RSS Feed</p>
+          </div>
         </div>
-      </header>
-      <div className="flex-grow flex flex-col items-center p-8">
-        <h1 className="text-4xl font-bold text-purple-600 mb-8">Upload</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-8">
-          <button className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center space-x-2">
-            <img
-              src="https://img.icons8.com/color/48/000000/youtube-play.png"
-              alt="YouTube"
-            />
-            <span>Upload YouTube Video</span>
-          </button>
-          <button className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center space-x-2">
-            <img
-              src="https://img.icons8.com/color/48/000000/spotify.png"
-              alt="Spotify"
-            />
-            <span>Upload Spotify Podcast</span>
-          </button>
-          <button className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center space-x-2">
-            <img
-              src="https://img.icons8.com/color/48/000000/rss.png"
-              alt="RSS"
-            />
-            <span>Upload from RSS Feed</span>
-          </button>
-        </div>
-        <div className="bg-white p-8 rounded-lg shadow-md text-center">
-          <p className="mb-4">
+
+        {/* File Upload Section */}
+        <div className="border-2 border-dashed rounded-lg p-8 text-center">
+          <p>
             Select a file or drag and drop here (Podcast Media or Transcription
             Text)
           </p>
-          <input
-            type="file"
-            className="w-full p-2 border border-gray-300 rounded"
-          />
+          <button className="mt-4 px-4 py-2 bg-purple-600 text-white rounded">
+            Select File
+          </button>
         </div>
       </div>
-      <footer className="bg-white text-center py-4">
-        <p className="text-gray-500">&copy; 2024 LAMA. All rights reserved.</p>
-      </footer>
+
+      {/* YouTube Upload Popup */}
+      {isYouTubePopupOpen && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg">
+            <h2 className="text-xl mb-4">Upload from YouTube</h2>
+            <input
+              type="text"
+              placeholder="Name"
+              className="border mb-2 p-2 w-full"
+            />
+            <textarea
+              placeholder="Description"
+              className="border mb-4 p-2 w-full"
+            />
+            <button
+              onClick={handleClosePopup}
+              className="px-4 py-2 bg-purple-600 text-white rounded"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* RSS Feed Upload Popup */}
+      {isRSSFeedPopupOpen && (
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-6 rounded-lg">
+            <h2 className="text-xl mb-4">Upload from RSS Feed</h2>
+            <input
+              type="text"
+              placeholder="Name"
+              className="border mb-2 p-2 w-full"
+            />
+            <textarea
+              placeholder="Description"
+              className="border mb-4 p-2 w-full"
+            />
+            <button
+              onClick={handleClosePopup}
+              className="px-4 py-2 bg-purple-600 text-white rounded"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
-
-

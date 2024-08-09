@@ -1,7 +1,52 @@
 import "./index.css";
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { App } from "./App";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Login } from "./components/Login";
+import { Home } from "./components/Home";
+import { ProjectUpload } from "./components/ProjectUpload";
+import { Register } from "./components/Register";
+import ProjectCreation from "./components/ProjectCreation";
 
+const routerConfiguration = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Login />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
+      },
+    ],
+  },
+  {
+    path: "/home",
+    element: <ProjectCreation />,
+    children: [
+      {
+        path: "/home",
+        element: <Home />,
+        children: [],
+      },
+    ],
+  },
+
+  {
+    path: "/upload",
+    element: <ProjectUpload />,
+  },
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+root.render(
+  <RouterProvider router={routerConfiguration}> 
+  </RouterProvider>
+);
