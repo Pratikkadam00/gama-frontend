@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Login } from "./components/Login";
+import { Login } from "./components/Login.js";
 import { Home } from "./components/Home";
 import { ProjectUpload } from "./components/ProjectUpload";
 import { Register } from "./components/Register";
