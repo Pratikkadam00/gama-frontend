@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import GAMA from "../assets/GAMA.png";
 import ICON from "../assets/directright.png";
 import { IoMdSettings, IoMdNotificationsOutline } from "react-icons/io";
 import { User } from "../store/userStore";
@@ -19,7 +18,7 @@ const Header = () => {
     <header className="absolute top-0 w-full p-4 flex justify-between  px-6 bg-gray-100">
       <div className="flex items-center gap-1">
         <img className="h-8 " src={ICON} />
-        <img className="h-5 mb-1" src={GAMA} />
+        <h2 className="font-bold text-purple-600 text-3xl">GAMA</h2>
       </div>
       <div className="flex items-center space-x-4">
         {email && (

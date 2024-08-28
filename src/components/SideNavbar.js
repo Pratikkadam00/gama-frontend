@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import GAMA from "../assets/GAMA.png";
 import ICON from "../assets/directright.png";
 import { NavLink, useParams } from "react-router-dom";
 const SideNavbar = () => {
@@ -11,7 +10,7 @@ const SideNavbar = () => {
       <div>
         <div className="flex items-center gap-1">
           <img className="h-8 " src={ICON} />
-          <img className="h-5 mb-1" src={GAMA} />
+          <h2 className="font-bold text-purple-600 text-3xl">GAMA</h2>
         </div>
       </div>
       <div className="w-full flex flex-col gap-2 border-b-2 pb-4">
