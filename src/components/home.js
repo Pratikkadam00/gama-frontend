@@ -14,7 +14,6 @@ export const Home = () => {
     if (!userId) return;
     getProjectsWithUserId(userId);
   }, [userId]);
-  console.log("home");
   return (
     <div className="h-screen w-full flex flex-col items-center justify-center bg-gray-100">
       {projectList.length === 0 ? <NoProjectScreen /> : <ProjectScreen />}
