@@ -27,26 +27,17 @@ export const Project = create((set) => {
       }
     },
     getProjectsWithUserId: async (userId) => {
+      console.log("plist", userId);
       try {
-        const { data } = await axios.post(project_api, { params: userId });
+        const { data } = await axios.get(project_api, { params: {userId} });
+        console.log("data", data);
         set((state) => ({
-          projectList: [
-            { name: data.name, createdAt: data.createdAt },
-            ...state.projectList,
-          ],
+          projectList: [...data],
         }));
       } catch (error) {
         console.log(error);
         return false;
       }
     },
-    deleteUser: (user) =>
-      set((state) => ({
-        user: {
-          name: "",
-          email: "",
-        },
-        isLoggedIn: false,
-      })),
   };
 });

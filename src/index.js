@@ -8,6 +8,7 @@ import { Home } from "./components/Home";
 import { ProjectUpload } from "./components/ProjectUpload";
 import { Register } from "./components/Register";
 import ProjectCreation from "./components/ProjectCreation";
+import { UploadPage } from "./components/UploadPage";
 
 const routerConfiguration = createBrowserRouter([
   {
@@ -39,10 +40,15 @@ const routerConfiguration = createBrowserRouter([
       },
     ],
   },
-
   {
-    path: "/upload",
+    path: "/:projectId/upload",
     element: <ProjectUpload />,
+    children: [
+      {
+        path: "/:projectId/upload",
+        element: <UploadPage />,
+      },
+    ],
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
