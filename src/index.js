@@ -4,12 +4,12 @@ import ReactDOM from "react-dom/client";
 import { App } from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { ProjectUpload } from "./components/ProjectUpload.js";
+import { ProjectUpload } from "./components/ProjectUpload.js"
 import { Register } from "./components/Register.js";
 import ProjectCreation from "./components/ProjectCreation.js";
 import { UploadPage } from "./components/UploadPage.js";
 import { Login } from "./components/Login.js";
-import {Home} from "./components/Home.js"
+import { Home } from "./components/Home.js"
 
 
 const routerConfiguration = createBrowserRouter([
@@ -37,7 +37,7 @@ const routerConfiguration = createBrowserRouter([
     children: [
       {
         path: "/home",
-        element:<Home />,
+        element: <Home />,
         children: [],
       },
     ],
