@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import SideNavbar from "./SideNavbar";
 import { Outlet } from "react-router-dom";
 

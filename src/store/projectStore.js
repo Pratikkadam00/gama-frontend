@@ -1,6 +1,6 @@
 import axios from "axios";
 import { create } from "zustand";
-import { project_api, login_api } from "../constants/url";
+import { project_api } from "../constants/url";
 
 export const Project = create((set) => {
   return {
