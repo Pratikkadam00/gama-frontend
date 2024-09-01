@@ -11,9 +11,7 @@ export const Login = () => {
     } = useForm();
     const { loginUser, isLoggedIn } = User((state) => state);
     const onSubmit = (data) => {
-        console.log(data);
         if (!data.email && !data.password) return;
-        console.log("loginUser(data)", loginUser(data));
         loginUser(data);
     };
     useEffect(() => {

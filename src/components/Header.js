@@ -13,7 +13,6 @@ const Header = () => {
     deleteUser();
     navigate("/login");
   };
-  console.log("email", email);
   return (
     <header className="absolute top-0 w-full p-4 flex justify-between  px-6 bg-gray-100">
       <div className="flex items-center gap-1">

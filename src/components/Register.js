@@ -12,7 +12,7 @@ export const Register = () => {
     } = useForm();
     const { createUser } = User((state) => state);
     const onSubmit = (data) => {
-        console.log(data);
+     
         if (!data.email && !data.name && !data.password) return;
         if (createUser(data)) {
             navigate("/login");

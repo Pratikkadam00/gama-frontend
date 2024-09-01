@@ -27,10 +27,9 @@ export const Project = create((set) => {
       }
     },
     getProjectsWithUserId: async (userId) => {
-      console.log("plist", userId);
+     
       try {
         const { data } = await axios.get(project_api, { params: {userId} });
-        console.log("data", data);
         set((state) => ({
           projectList: [...data],
         }));
