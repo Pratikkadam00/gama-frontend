@@ -3,8 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { App } from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-import { ProjectUpload } from "./components/ProjectUpload.js"
+import { ProjectUpload } from "./components/ProjectUpload.js";
 import { Register } from "./components/Register.js";
 import ProjectCreation from "./components/ProjectCreation.js";
 import { UploadPage } from "./components/UploadPage.js";
