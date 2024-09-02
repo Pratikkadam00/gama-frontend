@@ -16,7 +16,7 @@ export const Login = () => {
     };
     useEffect(() => {
         if (isLoggedIn) navigate("/home");
-    }, [isLoggedIn]);
+    }, [isLoggedIn, navigate]);
     return (
         <div className="h-full bg-gray-100 flex items-center justify-center">
             <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
