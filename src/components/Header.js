@@ -13,11 +13,10 @@ const Header = () => {
     deleteUser();
     navigate("/login");
   };
-  console.log("email", email);
   return (
     <header className="absolute top-0 w-full p-4 flex justify-between  px-6 bg-gray-100">
       <div className="flex items-center gap-1">
-        <img className="h-8 " src={ICON} />
+        <img className="h-8" alt="img" src={ICON} />
         <h2 className="font-bold text-purple-600 text-3xl">GAMA</h2>
       </div>
       <div className="flex items-center space-x-4">
