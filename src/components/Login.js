@@ -1,22 +1,33 @@
-import React, { useEffect } from "react";
+import React, {useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { User } from "../store/userStore";
 import { useNavigate } from "react-router-dom";
+import NotificationPopup from "./NotificationPopUp"; 
+
 export const Login = () => {
     const navigate = useNavigate();
-    const {
-        register,
-        handleSubmit,
-    } = useForm();
-    const { loginUser, isLoggedIn } = User((state) => state);
-    const onSubmit = (data) => {
+    const { register, handleSubmit } = useForm();
+    const { loginUser } = User((state) => state);
+    const [showPopup, setShowPopup] = useState(false);
+    const [popupMessage, setPopupMessage] = useState("");
+
+    const onSubmit = async (data) => {
         if (!data.email && !data.password) return;
-        loginUser(data);
+        const user = await loginUser(data);
+        if (user) {
+            setPopupMessage("Login successful, Redirecting!");
+            setShowPopup(true);
+            setTimeout(() => {
+                navigate("/home");
+            }, 3000);
+        } else {
+            setPopupMessage("Login failed. Please check your credentials.");
+            setShowPopup(true);
+        }
     };
-    useEffect(() => {
-        if (isLoggedIn) navigate("/home");
-    }, [isLoggedIn, navigate]);
+
+
     return (
         <div className="h-full bg-gray-100 flex items-center justify-center">
             <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
@@ -58,6 +69,13 @@ export const Login = () => {
                     </p>
                 </div>
             </div>
+            {showPopup && (
+                <NotificationPopup
+                    message={popupMessage}
+                    duration={3000}
+                    onClose={() => setShowPopup(false)}
+                />
+            )}
         </div>
     );
 };

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const ConfigNavbar = () => {
   const [selectedLanguage, setSelectedLanguage] = useState("EN");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -17,7 +19,10 @@ const ConfigNavbar = () => {
     <div className="flex items-center justify-between h-16 bg-white px-4 md:px-8 shadow-md">
       <div className="flex items-center space-x-2">
         {/* Home Icon */}
-        <div className="cursor-pointer text-xl text-purple-500 font-semibold">
+        <div
+          className="cursor-pointer text-xl text-purple-500 font-semibold"
+          onClick={() => navigate("/home")} // Use navigate to go to /home
+        >
           <svg
             width="52"
             height="52"
@@ -73,49 +78,44 @@ const ConfigNavbar = () => {
             >
               <ul className="py-2 text-sm text-gray-700">
                 <li>
-                  <a
-                    href="#"
+                  <button
                     onClick={() => handleLanguageChange("EN")}
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     English
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <button
                     onClick={() => handleLanguageChange("ES")}
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     Spanish
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <button
                     onClick={() => handleLanguageChange("FR")}
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     French
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <button
                     onClick={() => handleLanguageChange("DE")}
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     German
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <button
                     onClick={() => handleLanguageChange("IT")}
-                    className="block px-4 py-2 hover:bg-gray-100"
+                    className="block w-full text-left px-4 py-2 hover:bg-gray-100"
                   >
                     Italian
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -125,15 +125,17 @@ const ConfigNavbar = () => {
         {/* Notification Icon */}
         <div className="cursor-pointer">
           <svg
-            width="64"
-            height="64"
-            viewBox="0 0 64 64"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M32.0001 58C34.9334 58 37.3334 55.6 37.3334 52.6667H26.6667C26.6667 55.6 29.0667 58 32.0001 58ZM48.0001 42V28.6667C48.0001 20.48 43.6534 13.6267 36.0001 11.8133V10C36.0001 7.78667 34.2134 6 32.0001 6C29.7867 6 28.0001 7.78667 28.0001 10V11.8133C20.3734 13.6267 16.0001 20.4533 16.0001 28.6667V42L10.6667 47.3333V50H53.3334V47.3333L48.0001 42ZM42.6667 44.6667H21.3334V28.6667C21.3334 22.0533 25.3601 16.6667 32.0001 16.6667C38.6401 16.6667 42.6667 22.0533 42.6667 28.6667V44.6667Z"
-              fill="black"
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M12 22c1.1046 0 2-.8954 2-2H10c0 1.1046.8954 2 2 2zm5-2H7v-2H5V6c0-3.3137 2.6863-6 6-6s6 2.6863 6 6v12h2v2zm-6-2a4 4 0 0 1-4-4V6c0-2.2091 1.7909-4 4-4s4 1.7909 4 4v10a4 4 0 0 1-4 4z"
+              fill="#7E22CE"
             />
           </svg>
         </div>

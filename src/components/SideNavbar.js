@@ -9,7 +9,7 @@ const SideNavbar = () => {
     <nav className="w-1/5 h-screen bg-gray-100 p-6 flex flex-col items-start gap-10">
       <div>
         <div className="flex items-center gap-1">
-          <img className="h-8 " src={ICON} />
+          <img className="h-8 " alt="img" src={ICON} />
           <h2 className="font-bold text-purple-600 text-3xl">GAMA</h2>
         </div>
       </div>
@@ -17,7 +17,7 @@ const SideNavbar = () => {
         {[
           { label: "Projects", path: `/${projectId}/upload` },
           { label: "Widget-configuration" },
-          { label: "Deployement" },
+          { label: "Deploy" },
           { label: "Pricing" },
         ].map((config, index) => (
           <div

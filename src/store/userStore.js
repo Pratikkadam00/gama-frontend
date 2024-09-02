@@ -23,15 +23,18 @@ export const User = create((set) => {
     loginUser: async (userPayload) => {
       try {
         const { data } = await axios.post(login_api, userPayload);
-        set((state) => ({
-          user: { ...data?.user },
-          isLoggedIn: true,
-        }));
-
-        return data.user;
+        if (data && data.user) {
+          set((state) => ({
+            user: { ...data.user },
+            isLoggedIn: true,
+          }));
+          return data.user; 
+        } else {
+          return false; 
+        }
       } catch (error) {
-        console.log(error);
-        return false;
+        console.error(error);
+        return false; 
       }
     },
 
